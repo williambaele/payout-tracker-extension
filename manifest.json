@@ -1,0 +1,13 @@
+{
+  "name": "Restocks Checker",
+  "description": "Don't forget any payouts !",
+  "version": "0.0.2",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "fav.png",
+      "32": "fav.png"
+    }
+  }
+}

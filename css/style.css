@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Martel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo&family=Hind&family=Martel&family=Proza+Libre&display=swap');
+
+h1,h2,h3 {
+  font-family: 'Hind', sans-serif;
+}
+
+p,a,btn {
+  font-family: 'Chivo', sans-serif;
+}
