@@ -14,10 +14,3 @@ function myFunction(){
   </div>
   `;
 }
-
-
-
-document.getElementById("addbtn").addEventListener("click", myFunction);
-function myFunction(){
-  
-}
