@@ -820,6 +820,16 @@ video {
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#277f81\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(39 127 129 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#6faaab\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(111 170 171 / var(--tw-bg-opacity));
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -921,4 +931,14 @@ p,a,btn {
 .hover\:bg-\[\#277f81\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(39 127 129 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#579c9d\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(87 156 157 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-\[\#6faaab\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(111 170 171 / var(--tw-bg-opacity));
 }
