@@ -36,15 +36,22 @@
     </div>
   </div>
   <!-- BOTTOM SETTINGS -->
-  <div class="flex mb-4 absolute bottom-0 justify-end bg-red-200 items-center gap-3 w-96 px-4">
-    <div>
-      <button class="bg-[#0f7173] rounded-md p-2 text-sm text-white font-medium" id="addsale">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-        </svg>
-      </button>
+  <div class="flex mb-4 absolute bottom-0 justify-end items-center gap-3 w-96 px-10">
+    <div class="flex gap-3">
+      <div id="formsale" class="hidden">
+        <form action="" id="formsale">
+          <input type="text" id="salevalue" class="bg-gray-300 p-2 rounded-md" placeholder="Your new sale">
+        </form>
+      </div>
+      <div>
+        <button class="bg-[#0f7173] rounded-md p-2 text-sm text-white font-medium" id="addsale">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+        </button>
+      </div>
     </div>
-    <div>
+    <div class="flex gap-3">
       <div id="formwebhook" class="hidden">
         <form action="" id="formwebhook">
           <input type="text" id="urlwebhook" class="bg-gray-300 p-2 rounded-md" placeholder="Your webhook's url">

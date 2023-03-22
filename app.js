@@ -61,3 +61,14 @@ function showForm() {
     x.style.display = "none";
   }
 }
+
+/* SETTINGS SALE FUNCTION*/
+document.querySelector("#addsale").addEventListener("click", showSale);
+function showSale() {
+  var x = document.getElementById("formsale");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
