@@ -65,7 +65,7 @@ function saveSale() {
     }
 }
 
-/* SALE'S DELETE FUNCTION*/
+/* SALE'S DELETE FUNCTION */
 function deleteItem(event) {
   const index = event.target.getAttribute("data-index");
   let saleList = JSON.parse(localStorage.getItem("saleData")) || [];
@@ -80,7 +80,6 @@ deleteButtons.forEach((button, index) => {
   button.setAttribute("data-index", index);
   button.addEventListener("click", deleteItem);
 });
-
 
 
 
