@@ -23,6 +23,7 @@ function displayWaitingPayout() {
     </div>
   `).join('');
 }
+
 displayWaitingPayout();
 
 
@@ -65,21 +66,20 @@ function saveSale() {
 }
 
 /* SALE'S DELETE FUNCTION*/
-function deleteItem(index) {
+function deleteItem(event) {
+  const index = event.target.getAttribute("data-index");
   let saleList = JSON.parse(localStorage.getItem("saleData")) || [];
   saleList.splice(index, 1);
   localStorage.setItem("saleData", JSON.stringify(saleList));
   console.log("Sale deleted");
-  saveSale()
   displayWaitingPayout();
 }
 
 const deleteButtons = document.querySelectorAll(".deleteitem");
-deleteButtons.forEach((button) => {
-  const index = button.getAttribute("data-index");
-  button.addEventListener("click", () => deleteItem(index));
+deleteButtons.forEach((button, index) => {
+  button.setAttribute("data-index", index);
+  button.addEventListener("click", deleteItem);
 });
-
 
 
 
