@@ -3,7 +3,7 @@ function displayWaitingPayout() {
   const saleList = JSON.parse(localStorage.getItem("saleData")) || [];
   document.querySelector("#waiting").classList.remove('bg-[#0f7173]');
   document.querySelector("#waiting").classList.add('bg-[#6faaab]');
-  document.querySelector("#main").innerHTML = saleList.map(sale => `
+  document.querySelector("#main").innerHTML = saleList.reverse().map(sale => `
     <div class="flex bg-gray-300 rounded-md px-4 gap-4 py-2 items-center">
       <div class="flex justify-between items-center w-full">
         <div>
@@ -56,7 +56,9 @@ function saveSale() {
     console.log("Sale saved");
     // You can do whatever you want with the updated sale list, for example, display it on the page
     console.log(saleList);
-  }
+    displayWaitingPayout();
+    newSaleWebhook(discordwebhook);
+    }
 }
 
 
@@ -68,6 +70,9 @@ function saveSale() {
                               /* SETTINGS */
 /***************************************************************************/
 
+
+
+/*----------- WEBHOOKS -----------*/
 /* SEND WEBHOOK FUNCTION*/
 function sendWebhookTest(discordwebhook) {
   let url = discordwebhook;
@@ -82,12 +87,26 @@ function sendWebhookTest(discordwebhook) {
     body: JSON.stringify(params)
   };
   fetch(url, requestOptions);
-  updateLastCalled();
 }
 
+function newSaleWebhook(discordwebhook) {
+  let url = discordwebhook;
+  const params = {
+    username: "Restocks Payout Tracker",
+    avatar_url: "https://pbs.twimg.com/profile_images/1502207992883777537/Q_LgbS4-_400x400.jpg",
+    content: "New sale added ✅"
+  };
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(params)
+  };
+  fetch(url, requestOptions);
+}
 /* WEBHOOK SAVING FUNCTION*/
 let input = document.querySelector("#urlwebhook");
 let webhookform = document.querySelector("#formwebhook");
+let discordwebhook = '';
 
 webhookform.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -95,10 +114,9 @@ webhookform.addEventListener('submit', (e) => {
   if(input.value == ''){
   }
   else {
-  let discordwebhook = input.value;
+  discordwebhook = input.value;
   input.classList.add('outline-green-600');
   sendWebhookTest(discordwebhook);
-
   }
 });
 
