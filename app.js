@@ -65,17 +65,17 @@ function saveSale() {
 }
 
 /* SALE'S DELETE FUNCTION*/
-document.querySelector("#deleteitem").addEventListener("click", deleteSale);
-
-function deleteSale() {
-  console.log("hi");
+function deleteSale(index) {
   const saleList = JSON.parse(localStorage.getItem("saleData")) || [];
-  const indexToDelete = parseInt(getAttribute('data-index'));
-  saleList.splice(indexToDelete, 1);
+  saleList.splice(index, 1);
   localStorage.setItem("saleData", JSON.stringify(saleList));
   displayWaitingPayout();
 }
 
+document.querySelector("#deleteitem").addEventListener("click", (event) => {
+  const index = event.target.closest(".flex").getAttribute("data-index");
+  deleteSale(index);
+});
 
 
 
