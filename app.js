@@ -14,3 +14,37 @@ function myFunction(){
   </div>
   `;
 }
+
+
+
+
+function sendWebhookTest(discordwebhook) {
+  let url = discordwebhook;
+  const params = {
+    username: "Restocks Payout Tracker",
+    avatar_url: "https://pbs.twimg.com/profile_images/1502207992883777537/Q_LgbS4-_400x400.jpg",
+    content: "Your webhook works well ✅"
+  };
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify(params)
+  };
+  fetch(url, requestOptions);
+  updateLastCalled();
+}
+
+let input = document.querySelector("#discordwebhook");
+let webhookform = document.querySelector("#webhookform");
+
+webhookform.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if(input.value == ''){
+  }
+  else {
+  let discordwebhook = input.value;
+  sendWebhookTest(discordwebhook);
+
+  }
+});
