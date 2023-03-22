@@ -17,7 +17,7 @@ function myFunction(){
 
 
 
-
+/* SEND WEBHOOK FUNCTION*/
 function sendWebhookTest(discordwebhook) {
   let url = discordwebhook;
   const params = {
@@ -34,8 +34,10 @@ function sendWebhookTest(discordwebhook) {
   updateLastCalled();
 }
 
-let input = document.querySelector("#discordwebhook");
-let webhookform = document.querySelector("#webhookform");
+
+/* WEBHOOK SAVING FUNCTION*/
+let input = document.querySelector("#urlwebhook");
+let webhookform = document.querySelector("#formwebhook");
 
 webhookform.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -45,6 +47,17 @@ webhookform.addEventListener('submit', (e) => {
   else {
   let discordwebhook = input.value;
   sendWebhookTest(discordwebhook);
-
   }
 });
+
+
+/* SETTINGS WEBHOOK FUNCTION*/
+document.querySelector("#addformwebhook").addEventListener("click", showForm);
+function showForm() {
+  var x = document.getElementById("formwebhook");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
