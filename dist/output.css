@@ -904,6 +904,10 @@ video {
   outline-color: #dc2626;
 }
 
+.outline-green-600 {
+  outline-color: #16a34a;
+}
+
 /*FONTS*/
 
 h1,h2,h3 {

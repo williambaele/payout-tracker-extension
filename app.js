@@ -33,6 +33,8 @@ saleFormId.addEventListener('submit', (e) => {
     let mySale = saleInput.value;
     saveSale();
     console.log("This sale has been added: " + mySale);
+    saleInput.classList.add('outline-green-600');
+    saleInput.value = "";
   }
 });
 
@@ -88,7 +90,9 @@ webhookform.addEventListener('submit', (e) => {
   }
   else {
   let discordwebhook = input.value;
+  input.classList.add('outline-green-600');
   sendWebhookTest(discordwebhook);
+
   }
 });
 
