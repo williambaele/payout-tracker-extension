@@ -1,7 +1,7 @@
-document.getElementById("waiting").addEventListener("click", myFunction);
-function myFunction(){
+document.getElementById("waiting").addEventListener("click", loadWaitingPayout);
+function loadWaitingPayout(){
   document.querySelector("#main").innerHTML = `
-  <div class="flex bg-[#939499] rounded-md px-4 gap-4 py-2 items-center">
+  <div class="flex bg-gray-300 rounded-md px-4 gap-4 py-2 items-center">
     <div>
       <h2 class="font-medium text-md rounded-full bg-[#0f7173] p-1 flex items-center justify-center text-white">1</h2>
     </div>
@@ -15,7 +15,68 @@ function myFunction(){
   `;
 }
 
+loadWaitingPayout();
 
+
+/* SALE'S SAVING FUNCTION*/
+let saleInput = document.querySelector("#salevalue");
+let saleFormId = document.querySelector("#formsale");
+
+saleFormId.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if(saleInput.value == ''){
+    saleInput.classList.add('outline-red-600');
+    saleInput.placeholder = "Please enter a value";
+  }
+  else {
+  let mySale = saleInput.value;
+  console.log(mySale);
+  }
+});
+
+// // Define the data you want to save
+// const mySale = { id: 1, text: "Some textual data" };
+
+// // Convert the data to a string using JSON.stringify
+// const dataString = JSON.stringify(mySale);
+
+// // Save the data to localStorage using the key "myData"
+// localStorage.setItem("myData", dataString);
+
+// localStorage.setItem("movie", JSON.stringify(data));
+// console.log(data);
+
+
+/* SAVE DATA TO LOCAL STORAGE */
+function saveSale() {
+  const movieData = JSON.parse(localStorage.getItem("movie"));
+  if (movieData) {
+    // Retrieve the existing watch list from local storage
+    const watchList = JSON.parse(localStorage.getItem("watchList")) || [];
+    // Add the movie data to the watch list
+    watchList.push(movieData);
+    // Save the updated watch list to local storage
+    localStorage.setItem("watchList", JSON.stringify(watchList));
+    console.log("Movie saved");
+    displayWatchList(watchList);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/***************************************************************************/
+                              /* SETTINGS */
+/***************************************************************************/
 
 /* SEND WEBHOOK FUNCTION*/
 function sendWebhookTest(discordwebhook) {
@@ -34,7 +95,6 @@ function sendWebhookTest(discordwebhook) {
   updateLastCalled();
 }
 
-
 /* WEBHOOK SAVING FUNCTION*/
 let input = document.querySelector("#urlwebhook");
 let webhookform = document.querySelector("#formwebhook");
@@ -49,7 +109,6 @@ webhookform.addEventListener('submit', (e) => {
   sendWebhookTest(discordwebhook);
   }
 });
-
 
 /* SETTINGS WEBHOOK FUNCTION*/
 document.querySelector("#addformwebhook").addEventListener("click", showForm);
