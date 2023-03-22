@@ -594,6 +594,11 @@ video {
   width: 6rem;
 }
 
+.w-max {
+  width: -moz-max-content;
+  width: max-content;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -624,6 +629,10 @@ video {
 
 .justify-around {
   justify-content: space-around;
+}
+
+.justify-items-end {
+  justify-items: end;
 }
 
 .gap-3 {
