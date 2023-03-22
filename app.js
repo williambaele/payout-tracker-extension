@@ -4,7 +4,7 @@ function displayWaitingPayout() {
   document.querySelector("#waiting").classList.remove('bg-[#0f7173]');
   document.querySelector("#waiting").classList.add('bg-[#6faaab]');
   document.querySelector("#main").innerHTML = saleList.reverse().map((sale, index) => `
-    <div class="flex bg-gray-300 rounded-md px-4 gap-4 py-2 items-center" data-index="${index}">
+    <div class="flex bg-gray-300 rounded-md px-4 gap-4 py-2 items-center" data-index="${index}" id="bodysale">
       <div class="flex justify-between items-center w-full">
         <div>
           <p class="text-lg text-white">${sale}</p>
@@ -66,17 +66,16 @@ function saveSale() {
 
 /* SALE'S DELETE FUNCTION*/
 function deleteItem() {
-  const index = this.parentNode.parentNode.getAttribute("data-index");
+  const index = document.querySelector("#bodysale");
   let saleList = JSON.parse(localStorage.getItem("saleData")) || [];
-  saleList.splice(index, 1);
+  saleList.splice(index);
   localStorage.setItem("saleData", JSON.stringify(saleList));
-  console.log("hi");
+  console.log("Sale deleted");
   displayWaitingPayout();
 }
 
 const deleteButtons = document.querySelectorAll(".deleteitem");
 deleteButtons.forEach((button) => button.addEventListener("click", deleteItem));
-
 
 
 
