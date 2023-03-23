@@ -22,6 +22,11 @@ function displayWaitingPayout() {
       </div>
     </div>
   `).join('');
+  document.querySelector("#main").addEventListener("click", function(event) {
+    if (event.target.classList.contains("deleteitem")) {
+      deleteItem(event);
+    }
+  });
 }
 
 displayWaitingPayout();
@@ -74,7 +79,6 @@ function deleteItem(event) {
   localStorage.setItem("saleData", JSON.stringify(saleList));
   displayWaitingPayout();
 }
-
 
 const deleteButtons = document.querySelectorAll(".deleteitem");
 deleteButtons.forEach((button, index) => {
