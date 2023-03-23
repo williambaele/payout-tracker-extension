@@ -153,11 +153,13 @@ webhookform.addEventListener('submit', (e) => {
 /* BTN WEBHOOK FUNCTION*/
 document.querySelector("#addformwebhook").addEventListener("click", showForm);
 function showForm() {
-  var x = document.getElementById("formwebhook");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  var y = document.getElementById("formwebhook");
+  var x = document.getElementById("formsale");
+  if (y.style.display === "none") {
+    y.style.display = "block";
     x.style.display = "none";
+  } else {
+    y.style.display = "none";
   }
 }
 
@@ -165,8 +167,10 @@ function showForm() {
 document.querySelector("#addsale").addEventListener("click", showSale);
 function showSale() {
   var x = document.getElementById("formsale");
+  var y = document.getElementById("formwebhook");
   if (x.style.display === "none") {
     x.style.display = "block";
+    y.style.display = "none";
   } else {
     x.style.display = "none";
   }
