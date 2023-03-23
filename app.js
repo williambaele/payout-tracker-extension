@@ -3,7 +3,7 @@ function displayWaitingPayout() {
   const saleList = JSON.parse(localStorage.getItem("saleData")) || [];
   document.querySelector("#waiting").classList.remove('bg-[#0f7173]');
   document.querySelector("#waiting").classList.add('bg-[#6faaab]');
-  document.querySelector("#main").innerHTML = saleList.reverse().map((sale, index) => `
+  document.querySelector("#main").innerHTML = saleList.map((sale, index) => `
     <div class="flex bg-gray-300 rounded-md px-4 gap-4 py-2 items-center" data-index="${index}" id="bodysale">
       <div class="flex justify-between items-center w-full">
         <div>
@@ -67,13 +67,14 @@ function saveSale() {
 
 /* SALE'S DELETE FUNCTION */
 function deleteItem(event) {
-  const index = event.target.getAttribute("data-index");
+  const index = event.target.parentNode.getAttribute("data-index");
   let saleList = JSON.parse(localStorage.getItem("saleData")) || [];
+  console.log("Sale deleted");
   saleList.splice(index, 1);
   localStorage.setItem("saleData", JSON.stringify(saleList));
-  console.log("Sale deleted");
   displayWaitingPayout();
 }
+
 
 const deleteButtons = document.querySelectorAll(".deleteitem");
 deleteButtons.forEach((button, index) => {
@@ -110,16 +111,21 @@ function sendWebhookTest(discordwebhook) {
 /* SEND WEBHOOK NEW SALE FUNCTION*/
 function newSaleWebhook(discordwebhook) {
   let url = discordwebhook;
+  function hexToDecimal(hex) {
+    return parseInt(hex.replace("#",""), 16)
+  }
   let saleInput = document.querySelector("#salevalue");
   const saleData = saleInput.value;
   const params = {
     "embeds": [{
       "username": "Restocks Payout Tracker",
+      "color": hexToDecimal("#00FF00"),
       "thumbnail": {
         "url": "https://pbs.twimg.com/profile_images/1502207992883777537/Q_LgbS4-_400x400.jpg"
       },
-      "description": `New sale added ✅
-      Sale ID: ${saleData}`
+      "title": "New sale added ✅",
+      "description": ` Sale ID: ${saleData}
+      Statut: In shipping 🚛`
     }]
   };
   const requestOptions = {
